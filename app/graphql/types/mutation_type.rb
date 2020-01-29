@@ -6,6 +6,7 @@ module Types
     #   argument :last_name, String, required: false, camelize: false
     #   argument :yob, Int, required: false
     #   argument :is_alive, Boolean, required: false, camelize: false
+    #   argument :author, Types::AuthorInputType, required: true <--- uses an object to create an author form AuthorInputType
     # end
 
     # def create_author(first_name:, last_name:, yob:, is_alive:)
@@ -13,5 +14,15 @@ module Types
     # end
 
     field :create_author, Types::AuthorType, mutation: Mutations::CreateAuthor
+    field :update_author, Boolean, null: false, description: "Update an author" do
+      argument :author, Types::AuthorInputType, required: true
+    end
+
+    def update_author(author:)
+      existing = Author.where(id: author[:id]).first
+
+      existing&.update_attributes author.to_h
+    end
+
   end
 end
