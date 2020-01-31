@@ -46,5 +46,16 @@ module Types
     def current_user
       context[:current_user]
     end
+
+    field :logout, Boolean, null: false
+
+    def logout
+      session = Session.where(id: context[:session_id]).first
+      if session&.destroy
+        true
+      else
+        false
+      end
+    end
   end
 end
