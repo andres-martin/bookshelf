@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: sessions
@@ -10,5 +12,7 @@
 #
 
 class Session < ApplicationRecord
+  before_create { self.key = SecureRandom.hex(20) }
+
   belongs_to :user
 end

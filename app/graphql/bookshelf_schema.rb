@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookshelfSchema < GraphQL::Schema
   mutation(Types::MutationType)
   query(Types::QueryType)
@@ -9,5 +11,4 @@ class BookshelfSchema < GraphQL::Schema
   use GraphQL::Pagination::Connections
 
   use GraphQL::Analysis::AST # require to run Execution::Interpreter
-
 end

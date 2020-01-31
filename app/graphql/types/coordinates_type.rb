@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Types::CoordinatesType < Types::BaseObject
   field :latitude, Float, null: true
   field :longitude, Float, null: true

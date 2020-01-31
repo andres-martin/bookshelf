@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Types
   class MutationType < Types::BaseObject
-
     # field :create_author, AuthorType, null: true, description: 'Creates an author' do
     #   argument :first_name, String, required: false, camelize: false
     #   argument :last_name, String, required: false, camelize: false
@@ -15,7 +16,7 @@ module Types
 
     field :create_author, Types::AuthorType, mutation: Mutations::CreateAuthor
 
-    field :update_author, Boolean, null: false, description: "Update an author" do
+    field :update_author, Boolean, null: false, description: 'Update an author' do
       argument :author, Types::AuthorInputType, required: true
     end
 
@@ -24,7 +25,7 @@ module Types
       existing&.update_attributes author.to_h
     end
 
-    field :delete_author, Boolean, null: false, description: "Delete an author" do
+    field :delete_author, Boolean, null: false, description: 'Delete an author' do
       argument :id, ID, required: true
     end
 
