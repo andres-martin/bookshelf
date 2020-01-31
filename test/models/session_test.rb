@@ -1,19 +1,17 @@
 # == Schema Information
 #
-# Table name: authors
+# Table name: sessions
 #
 #  id         :bigint           not null, primary key
-#  first_name :string
-#  last_name  :string
-#  yob        :integer
-#  is_alive   :boolean
+#  user_id    :integer
+#  key        :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class AuthorTest < ActiveSupport::TestCase
+class SessionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
