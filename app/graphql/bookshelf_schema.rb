@@ -11,4 +11,8 @@ class BookshelfSchema < GraphQL::Schema
   use GraphQL::Pagination::Connections
 
   use GraphQL::Analysis::AST # require to run Execution::Interpreter
+  
+  def self.unauthorized_object(error)
+    raise GraphQL::ExecutionError, "Permissions configuration do not allow the object you requested, of type Coordinates"
+  end
 end

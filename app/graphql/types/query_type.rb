@@ -10,6 +10,7 @@ module Types
                                description: 'An example field added by the generator 777' do
       argument :name, String, required: true
     end
+
     def test_field(name:)
       Rails.logger.info context[:time]
       "Hello #{name}!"
@@ -40,7 +41,7 @@ module Types
       end
     end
 
-    field :current_user, Types::UserType, null: true,
+    field :current_user, Types::UserType, null: true, camelize: false,
                                           description: 'The currently logged in user'
 
     def current_user
